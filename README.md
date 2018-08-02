@@ -1,2 +1,3 @@
 # CommerceCloud
-Commerce Cloud SiteGenesis, Training, Adyen
+
+cartridges: Commerce Cloud SiteGenesis/ Training/ Adyen/ Marketing Cloud Connector/
