@@ -1,0 +1,8 @@
+{
+  "init":[
+    "./cartridge/scripts/init/rest.js",
+    "./cartridge/scripts/init/soap.js"
+  ],
+  "main": "./cartridge/scripts/Registry.js",
+  "hooks": "./hooks.json"
+}

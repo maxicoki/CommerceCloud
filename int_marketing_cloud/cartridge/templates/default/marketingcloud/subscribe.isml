@@ -1,0 +1,45 @@
+<iscontent type="text/html" charset="UTF-8" compact="true"/>
+<isset name="DecoratorTemplate" value="account/pt_account" scope="page"/>
+<isif condition="${!empty(pdict.nodecorator) && pdict.nodecorator === true}">
+    <isset name="DecoratorTemplate" value="util/pt_empty" scope="page"/>
+</isif>
+
+<isdecorate template="${DecoratorTemplate}">
+    <isinclude template="util/modules"/>
+
+    <isslot id="mcsubscription-banner" description="Banner for Marketing Cloud Subscribe/Unsubscribe forms" context="global" />
+
+    <h1>${Resource.msg('mcsubscribe.signup','forms',null)}</h1>
+
+    <isif condition="${pdict.formSubmitted}">
+        <isif condition="${pdict.subscribed}">
+            ${Resource.msg('mcsubscribe.subscribed','forms',null)}
+        <iselse/>
+            ${Resource.msg('mcsubscribe.unsubscribed','forms',null)}
+        </isif>
+    <iselse/>
+        <form action="${URLUtils.httpsContinue()}" method="post" class="form-horizontal" id="MCSubscriptionForm">
+
+            <fieldset>
+
+                <isinputfield formfield="${pdict.CurrentForms.mcsubscribe.email}" type="input"/>
+
+                <div class="form-row form-row-button">
+                    <isif condition="${pdict.formAction === 'subscribe' || pdict.formAction === 'subscribeFooter'}">
+                        <button type="submit" value="${Resource.msg('mcsubscribe.subscribe','forms',null)}" name="${pdict.CurrentForms.mcsubscribe[pdict.formAction].htmlName}">
+                            ${Resource.msg('mcsubscribe.subscribe','forms',null)}
+                        </button>
+                    <iselse/>
+                        <button type="submit" value="${Resource.msg('mcsubscribe.unsubscribe','forms',null)}" name="${pdict.CurrentForms.mcsubscribe[pdict.formAction].htmlName}">
+                            ${Resource.msg('mcsubscribe.unsubscribe','forms',null)}
+                        </button>
+                    </isif>
+                </div>
+
+                <input type="hidden" name="${dw.web.CSRFProtection.getTokenName()}" value="${dw.web.CSRFProtection.generateToken()}"/>
+
+            </fieldset>
+
+        </form>
+    </isif>
+</isdecorate>

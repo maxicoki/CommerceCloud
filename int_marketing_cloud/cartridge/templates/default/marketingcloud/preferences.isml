@@ -1,0 +1,38 @@
+<iscontent type="text/html" charset="UTF-8" compact="true"/>
+<isdecorate template="account/pt_account">
+    <isinclude template="util/modules"/>
+
+    <isslot id="mcpreferences-banner" description="Banner for Marketing Cloud preference forms" context="global" />
+
+
+    <h1>${Resource.msg('mcpreferences.managelists','forms',null)}</h1>
+
+    <form action="${URLUtils.httpsContinue()}" method="post" class="form-horizontal" id="MCPreferencesForm">
+
+        <fieldset>
+
+            <isloop items="${pdict.CurrentForms.mcpreferences.lists}" var="list" status="listStatus">
+                <isset name="currentList" value="${pdict.availableLists.get(listStatus.index)}" scope="page" />
+
+                <isinputfield formfield="${list.listID}" type="hidden"/>
+
+                <div class="form-row label-inline form-indent">
+                    <div class="field-wrapper">
+                        <input class="input-checkbox" type="checkbox" id="${list.enabled.htmlName}" name="${list.enabled.htmlName}"
+                               value="true" <isif condition="${pdict.subscribedLists.indexOf(list.listID.value) !== -1}">checked="checked"</isif>>
+                    </div>
+                    <label for="${list.enabled.htmlName}"><span>${currentList.name}<isif condition="${!empty(currentList.description)}"> - ${currentList.description}</isif></span></label>
+                    <div class="form-caption"></div>
+                </div>
+            </isloop>
+
+            <button type="submit" value="${Resource.msg('mcpreferences.save','forms',null)}" name="${pdict.CurrentForms.mcpreferences.save.htmlName}">
+                ${Resource.msg('mcpreferences.save','forms',null)}
+            </button>
+
+            <input type="hidden" name="${dw.web.CSRFProtection.getTokenName()}" value="${dw.web.CSRFProtection.generateToken()}"/>
+
+        </fieldset>
+
+    </form>
+</isdecorate>
