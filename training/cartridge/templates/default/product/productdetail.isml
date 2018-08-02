@@ -1,0 +1,67 @@
+<iscontent type="text/html" charset="UTF-8" compact="true"/>
+<iscache type="relative" hour="24" varyby="price_promotion"/>
+<isobject object="${pdict.Product}" view="detail">
+	<div style="border: 1px solid #333333;">
+		Desc[standard-field] (Administration >  Site Development >  System Object Types > Product - Attribute Definitions): 
+			<b>${pdict.Product.shortDescription}</b><br/>
+		promotionInside[custom-field] (Administration >  Site Development >  System Object Types > Product - Attribute Definitions.  
+		He creado el atributo y asociado a un grupo): 
+			<b>${pdict.Product.custom.promotionInside}</b><br/>
+	</div>
+	<iscomment>la info de la api (producto): file:///D:/Users/maldrey/Desktop/sitios/Sales%20Force/Commerce%20Cloud/Doc/DWAPP-18.7-API-doc/scriptapi/html/index.html </iscomment>
+	<div id="pdpMain" class="pdp-main"  itemscope itemtype="http://schema.org/Product">
+		<iscomment>Image and variation options are part of the include template</iscomment>
+		
+		<isif condition="${pdict.Product.productSet || pdict.Product.bundle}">
+			<isinclude template="product/producttopcontentPS" />
+		<iselse/>
+			<isinclude template="product/producttopcontent" />
+		</isif>
+		
+	</div><!--/pdpMain -->
+</isobject>
+<isslot id="recomm-prod-anchor" description="Product page slot" context="global" context-object="${pdict.Product}"/>
+<iscomment>
+analytics dashboard
+</iscomment>
+<script type="text/javascript" src="https://7287609.collect.igodigital.com/collect.js"></script>
+<script type="text/javascript">
+	_etmc.push(["setOrgId", "7287609"]);
+	_etmc.push(["trackPageView"]);
+	
+	_etmc.push(["setUserInfo", {"email" : "testuser1@demandware.com"}]);
+	
+	
+	_etmc.push(["trackPageView", {"search" : "vaca"}]);
+	
+	
+    _etmc.push(["trackPageView", {"category" : "ropa"}]);
+
+	_etmc.push(["trackPageView", {"item" : "traje"}]);
+  
+
+	_etmc.push(["trackCart", {"cart" : [{
+							"item" : "traje",
+							"quantity" : "2",
+							"price" : "103"
+							}]
+					}
+	]);
+
+
+	_etmc.push(["trackConversion", {"cart" : [{
+									"item" : "traje",
+									"quantity" : "2",
+									"price" : "103"
+									}],
+						// OPTIONAL PARAMETERS
+						"order_number" : "00000000000001",
+						"discount" : "3",
+						"shipping" : "DHL"
+						// END OPTIONAL PARAMETERS
+						}
+	]);
+
+  
+  
+</script>

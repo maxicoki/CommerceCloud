@@ -1,0 +1,45 @@
+<!--- TEMPLATENAME: productfound.isml --->
+
+<!--  decoramos el template con el estilo de pt_productdetails -->
+<isdecorate template="product/pt_productdetails">
+	
+	
+	
+	
+	<iscomment>
+	-llamada a la pagina:https://student43-training-eu07-dw.demandware.net/on/demandware.store/Sites-SiteGenesis-Site/en_US/JShowProduct?pid=P0048
+	</iscomment>
+	
+	<!--  Uso Bundle para locales y le paso argumentos a la funcion msgf(ultimo parametro) --> 
+	${Resource.msgf('product.found','message', null, pdict.myProduct.name)}
+	<iscomment>${pdict.myProduct.name}  </iscomment>
+	
+	<iscomment> en la linea proxima redefino la variable 'product' (product que esta en producttile.isml) con informacion de mi producto (pdict.myProduct)</iscomment>
+	<isset name="product" value="${pdict.myProduct}" scope="pdict" />
+	
+	<iscomment>obtengo la variable showpricing que esta definida en el template de 'product' </iscomment>
+	<isset name="showpricing" value="${true}" scope="pdict" />
+	
+	<iscomment>obtengo la variable showswatches que esta definida en el template de 'product' </iscomment>
+	<isset name="showswatches" value="${true}" scope="pdict" />
+	
+	<iscomment>obtengo la variable showcompare que esta definida en el template de 'product' </iscomment>
+	<isset name="showcompare" value="${true}" scope="pdict" />
+	<isinclude template="product/producttile" />
+	
+	<iscomment>Una forma de incluir un template.... url significa 'Remote include'.   los includes de arriba son locales
+	(invocan al template directamente en vez de invocar al controlador)</iscomment>
+	<isinclude url="${URLUtils.url('Product-IncludeLastVisited') }" />
+	
+	
+	<iscomment>
+		Otra forma de incluir un template:
+		<iscomponent pipeline="Product-IncludeLastVisited" />
+	</iscomment>
+
+	<iscomment>alternativa a isset: utilizo el tag directamente</iscomment>
+	<isinclude template="util/modules" />
+	<isproducttile product="${pdict.myProduct}" showPricing="${true}"  />
+
+
+</isdecorate>

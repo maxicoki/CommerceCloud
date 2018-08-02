@@ -1,0 +1,5 @@
+<isdecorate template="account/pt_account">
+    <h4>An error occurred in your subscription.</h4>
+    Your email :  ${pdict.CurrentForms.newsletter.email.value} is invalid 
+    Back to <a href="${URLUtils.url('NewsletterV2-Start')}">Newsletter Subscription</a>.
+</isdecorate>

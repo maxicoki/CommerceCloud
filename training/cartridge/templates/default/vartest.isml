@@ -1,0 +1,20 @@
+<!--- TEMPLATENAME: vartest.isml --->
+
+<isset name="sessionVar" value="${1}" scope = "session"/>
+session expression: ${session.custom.sessionVar}<br/>
+
+<isset name="sessionVar" value="hello" scope = "request"/>
+request string: ${request.custom.sessionVar}<br/>
+
+
+
+<isset name="sessionVar" value="${true}" scope = "request"/>
+request true: ${request.custom.sessionVar}<br/>
+
+
+<isset name="sessionVar" value="${request.custom.sessionVar + 4}" scope = "request"/>
+increment: ${request.custom.sessionVar}<br/>
+
+
+<isset name="sessionVar" value="${!sessionVar}" scope = "page" />
+page: ${sessionVar}<br/>

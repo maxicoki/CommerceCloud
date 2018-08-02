@@ -1,0 +1,11 @@
+<!--- TEMPLATENAME: dscript.isml --->
+
+
+<iscomment>puedo crear scripting en mi isml, en vez de usar la logica directamente en el JS </iscomment>
+
+<isscript>
+	var cuMgr = require ('dw/customer/CustomerMgr');
+	var count = cuMgr.registeredCustomerCount;
+ </isscript>
+ 
+<h1>total customers: ${count}</h1>

@@ -1,0 +1,17 @@
+<isdecorate template="account/pt_account">
+	<h3>
+		${Resource.msgf('global.newsletterthanks',
+			'locale', 
+			null, 
+			pdict.Subscription.custom.firstName,  
+			pdict.Subscription.custom.lastName )}
+	</h3>
+	Back to <a href="${URLUtils.url('JNewsletterV2-Start')}">Newsletter Subscription</a>.
+	
+	
+The fname is: ${pdict.CurrentForms.newsletter.fname.value}
+
+the object first name is: ${pdict.Subscription.custom.firstName}
+</isdecorate>
+
+

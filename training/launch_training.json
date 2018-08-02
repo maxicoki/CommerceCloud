@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        
+        "Server",
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Server",
+            "program": "cartridge\\test.js"
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Server",
+            "configurations": ["Server"]
+        }
+    ]
+}

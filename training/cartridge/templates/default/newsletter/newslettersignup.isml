@@ -1,0 +1,33 @@
+<isdecorate template="account/pt_account">
+	<isinclude template="util/modules">
+	<h3>${Resource.msg('global.newslettersignup', 'locale', null)}</h3>
+	<form action="${URLUtils.httpContinue()}" method="post" id="${pdict.CurrentForms.newsletter.htmlName}">
+		<fieldset>
+		    <div class="formfield">
+		     
+		        <isinputfield formfield="${pdict.CurrentForms.newsletter.fname}" type="input">
+		    </div>
+		    <div class="formfield">
+		        <isinputfield formfield="${pdict.CurrentForms.newsletter.lname}" type="input">
+		    </div>
+		    <div class="formfield">
+		        <isinputfield formfield="${pdict.CurrentForms.newsletter.email}" type="input">
+		        <div class="clear"><!-- FLOAT CLEAR --></div>
+		    </div>
+			<div class="formactions">
+			<input type="submit" value="${Resource.msg('global.submit','locale',null)}" 
+			    name="${pdict.CurrentForms.newsletter.subscribe.htmlName}"/>
+			</div>
+		</fieldset>
+	</form>
+	<div style="border: 1px solid #333333;">
+		Hecho:<br/>
+		-creaci&oacute;n de un objeto NewsletterSubscription<br/>
+		-por cada usuario que creo en el form, lo a&nacute;ado al objeto NewsletterSubscription<br/>
+		-el newsletter anterior: poner enlace en la home como anonimo<br/>
+		<br/>
+		<b>Tareas por hacer:</b><br/>
+		
+		-a los usuarios registrados: crear un check para newsletter y asociarlo a un atributo del objeto 'customer (usuario)'
+	</div>
+</isdecorate>
