@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>DigitalServer</name>
+	<comment></comment>
+	<projects>
+		<project>contentslot</project>
+		<project>customerpreferences</project>
+		<project>jsolutions</project>
+		<project>solutions</project>
+		<project>training</project>
+		<project>storefront_core</project>
+		<project>storefront_controllers</project>
+		<project>storefront_pipelines</project>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>com.demandware.studio.server.uploadBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>com.demandware.studio.server.serverProjectNature</nature>
+	</natures>
+</projectDescription>
